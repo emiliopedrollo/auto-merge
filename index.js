@@ -17,13 +17,17 @@ try {
         .replace('{source_ref}', source_ref)
         .replace('{target_branch}', target_branch);
 
-    octokit.rest.repos.merge({
+    let params = {
         owner: repo.owner,
         repo: repo.repo,
         base: target_branch,
         head: source_ref,
-        commit_message: commit_message
-    }).then(() => {
+        commit_message: commit_message || null
+    }
+
+    Object.keys(params).forEach((k) => params[k] == null && delete params[k])
+
+    octokit.rest.repos.merge(params).then(() => {
         console.log(`Merged ${source_ref} into ${target_branch}`)
     })
 

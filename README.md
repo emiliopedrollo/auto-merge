@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: emiliopedrollo/auto-merge@v1.0.0
+      - uses: emiliopedrollo/auto-merge@v1.1.0
         with:
           github_token: ${{ github.token }}
           target_branch: 'master'
@@ -34,7 +34,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: emiliopedrollo/auto-merge@v1.0.0
+      - uses: emiliopedrollo/auto-merge@v1.1.0
         with:
           github_token: ${{ github.token }}
           target_branch: ${{ github.sha }}
@@ -55,7 +55,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: emiliopedrollo/auto-merge@v1.0.0
+      - uses: emiliopedrollo/auto-merge@v1.1.0
         with:
           github_token: ${{ github.token }}
           target_branch: 'master'
@@ -84,8 +84,3 @@ The token provided by the Workflow is conveniently available as a context var: `
 The available vars are:
  - `source_ref`: The head of the merge (i.e. the branch name or commit SHA1 from the source)
  - `target_branch`: The base The branch name (i.e. The branch name of the destination)
-
-The default commit message is the following:
-```text
-Merge {source_ref} into {target_branch}
-```

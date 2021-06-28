@@ -14,7 +14,7 @@ inputs:
   commit_message:
     description: 'The commit message'
     required: false
-    default: 'Merge {source_ref} into {target_branch}'
+    default: ''
 runs:
   using: 'node12'
   main: 'dist/index.js'
