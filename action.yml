@@ -1,0 +1,21 @@
+name: 'Auto merge'
+description: 'Automate merging the trigger branch into another one'
+inputs:
+  github_token:
+    description: 'Github authentication token available at context in github.token'
+    required: true
+  source_ref:
+    description: 'Branch name or Ref that you wish to merge into the target_branch.'
+    required: false
+    default: ''
+  target_branch:
+    description: 'Branch you are merging into.'
+    required: true
+  commit_message:
+    description: 'The commit message'
+    required: false
+    default: 'Merge {source_ref} into {target_branch}'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
+

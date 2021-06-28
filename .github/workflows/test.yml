@@ -1,0 +1,16 @@
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: A simple test
+    steps:
+      - uses: actions/checkout@v2
+      - uses: emiliopedrollo/auto-merge@v1.0.0
+        with:
+          github_token: ${{ github.token }}
+          source_ref: 'master'
+          target_branch: 'dev'
+          commit_message: 'Branch {target_branch} auto-merged {source_ref}'
