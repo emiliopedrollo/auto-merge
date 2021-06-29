@@ -8,8 +8,8 @@ jobs:
     name: A simple test
     steps:
       - uses: actions/checkout@v2
-      - uses: emiliopedrollo/auto-merge@v1.1.0
+      - uses: emiliopedrollo/auto-merge@v1.2.0
         with:
           github_token: ${{ github.token }}
-          source_ref: 'master'
           target_branch: 'dev'
+          allow_fast_forward: true

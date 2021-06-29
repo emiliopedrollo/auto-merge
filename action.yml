@@ -2,7 +2,7 @@ name: 'Auto branch merger'
 description: 'Automate merging the trigger branch into another one'
 inputs:
   github_token:
-    description: 'Github authentication token available at context in github.token'
+    description: 'Github authentication token available in github.token context.'
     required: true
   source_ref:
     description: 'Branch name or Ref that you wish to merge into the target_branch.'
@@ -15,6 +15,14 @@ inputs:
     description: 'The commit message'
     required: false
     default: ''
+  allow_fast_forward:
+    description: 'If enabled it will try to just update the reference first.'
+    required: false
+    default: true
+  force_fast_forward:
+    description: 'Force fast-forward. if allow_fast_forward is set to false, this has no effect.'
+    required: false
+    default: false
 runs:
   using: 'node12'
   main: 'dist/index.js'
